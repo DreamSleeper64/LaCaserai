@@ -1,0 +1,76 @@
+<?php
+
+namespace HotelBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=255)
+     */
+    private $street;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postal", type="string", length=255)
+     */
+    private $postal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bank", type="string", length=255)
+     */
+    private $bank;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="HotelBundle\Entity\Invoice", mappedBy="users")
+     */
+    private $invoices;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->invoices = new ArrayCollection();
+    }
+
+}
