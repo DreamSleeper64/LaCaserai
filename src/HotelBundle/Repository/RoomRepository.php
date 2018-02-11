@@ -1,6 +1,9 @@
 <?php
 
 namespace HotelBundle\Repository;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
+use HotelBundle\Entity\Media;
+use Doctrine\DBAL;
 
 /**
  * RoomRepository
@@ -10,4 +13,16 @@ namespace HotelBundle\Repository;
  */
 class RoomRepository extends \Doctrine\ORM\EntityRepository
 {
+    // $conn instanceof Doctrine\DBAL\Connection
+    public function getThinggie($obtained)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT c.imageUrl FROM HotelBundle:Room p 
+                      JOIN HotelBundle:Media c
+                      WHERE c.room = p.id
+                      WHERE p.id = '.$obtained
+            )
+            ->getResult()[0];
+    }
 }

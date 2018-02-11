@@ -1,0 +1,27 @@
+.navbar{
+    border-radius: 0 !important;
+}
+
+.adminPull{
+    position: fixed;
+    z-index: 99;
+    width: 50px;
+    height: 125px;
+    right: 0;
+    top: 45%;
+    border: 1px double black;
+    text-align: center;
+    border-top-left-radius: 25% ;
+    border-bottom-left-radius: 25% ;
+    background-color: #66dd66;
+}
+
+.adminPull__text{
+    line-height: 10px;
+    padding-top: 5px;
+    writing-mode: tb-rl;
+}
+
+.admin_button{
+    background: gray;
+}

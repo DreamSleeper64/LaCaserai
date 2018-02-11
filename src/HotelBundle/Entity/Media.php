@@ -47,6 +47,8 @@ class Media
      *
      * @ORM\ManyToOne(targetEntity="HotelBundle\Entity\Event", inversedBy="media")
      * @ORM\JoinColumn(name="event_id", referencedColumnName="id")
+     *
+     * @ORM\Column(name="event", type="string", length=255, nullable=true)
      */
     private $event;
 
@@ -55,6 +57,8 @@ class Media
      *
      * @ORM\ManyToOne(targetEntity="HotelBundle\Entity\Room", inversedBy="media")
      * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
+     *
+     * @ORM\Column(name="room", type="string", length=255, nullable=true)
      */
     private $room;
 
@@ -63,6 +67,8 @@ class Media
      *
      * @ORM\ManyToOne(targetEntity="HotelBundle\Entity\Facility", inversedBy="media")
      * @ORM\JoinColumn(name="facility_id", referencedColumnName="id")
+     *
+     * @ORM\Column(name="facility", type="string", length=255, nullable=true)
      */
     private $facility;
 
@@ -176,11 +182,10 @@ class Media
     /**
      * Set room
      *
-     * @param \HotelBundle\Entity\Room $room
      *
      * @return Media
      */
-    public function setRoom(\HotelBundle\Entity\Room $room = null)
+    public function setRoom($room = null)
     {
         $this->room = $room;
 
