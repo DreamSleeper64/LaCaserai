@@ -1,0 +1,45 @@
+{% extends '@Hotel/base.html.twig' %}
+
+{% block body %}
+    <h1>Seasons list</h1>
+
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Percentage</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for season in seasons %}
+            <tr>
+                <td><a href="{{ path('season_show', { 'id': season.id }) }}">{{ season.id }}</a></td>
+                <td>{% if season.startDate %}{{ season.startDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if season.endDate %}{{ season.endDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ season.percentage }}</td>
+                <td>{% if season.type %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('season_show', { 'id': season.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('season_edit', { 'id': season.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('season_new') }}">Create a new season</a>
+        </li>
+    </ul>
+{% endblock %}

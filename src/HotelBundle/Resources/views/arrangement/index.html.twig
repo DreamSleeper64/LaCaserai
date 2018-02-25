@@ -1,0 +1,43 @@
+{% extends '@Hotel/base.html.twig' %}
+
+{% block body %}
+    <h1>Arrangements list</h1>
+
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arrangement in arrangements %}
+            <tr>
+                <td><a href="{{ path('arrangement_show', { 'id': arrangement.id }) }}">{{ arrangement.id }}</a></td>
+                <td>{{ arrangement.name }}</td>
+                <td>{{ arrangement.description }}</td>
+                <td>{{ arrangement.price }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('arrangement_show', { 'id': arrangement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('arrangement_edit', { 'id': arrangement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('arrangement_new') }}">Create a new arrangement</a>
+        </li>
+    </ul>
+{% endblock %}

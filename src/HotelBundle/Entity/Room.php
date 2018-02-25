@@ -215,6 +215,7 @@ class Room
         return $this->media;
     }
 
+
     /**
      * Add arrangement
      *

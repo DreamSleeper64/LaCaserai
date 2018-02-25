@@ -1,4 +1,9 @@
 services:
-#    hotel.example:
-#        class: HotelBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    app.form.registration:
+        class: HotelBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+
+    HotelBundle\Service\FileUploader:
+      arguments:
+        $targetDir: '%image_directory'

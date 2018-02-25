@@ -1,0 +1,48 @@
+{% extends '@Hotel/base.html.twig' %}
+
+{% block body %}
+    <h1>Invoice</h1>
+
+    <table class="table table-responsive table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ invoice.id }}</td>
+            </tr>
+            <tr>
+                <th>Orderdate</th>
+                <td>{% if invoice.orderDate %}{{ invoice.orderDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Checkindate</th>
+                <td>{% if invoice.checkinDate %}{{ invoice.checkinDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Checkoutdate</th>
+                <td>{% if invoice.checkoutDate %}{{ invoice.checkoutDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Adults</th>
+                <td>{{ invoice.adults }}</td>
+            </tr>
+            <tr>
+                <th>Childeren</th>
+                <td>{{ invoice.childeren }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('invoice_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('invoice_edit', { 'id': invoice.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

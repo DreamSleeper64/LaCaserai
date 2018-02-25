@@ -1,1 +1,40 @@
-Hello World!
+{% extends "@Hotel/base.html.twig" %}
+{% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
+
+    {% else %}
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <h2>Welcome to Hotel Lacaserai
+            </h2>
+            <p>At LaCaserai we do our best to bring you and your family into the most beautiful and breathtaking scenery of old germany.</p>
+            <p>With our facilities in, and around the castle of Cocham and the many events that are hold in the city beneath, <br>you and your family can have the time of your life.</p>
+            <p>If it is rest you want, a nice sightseeing trip, or to attend the biggest parties germany can have, Hotel LaCaserai is <br><b>the place to be!</b></p>
+            <br>
+            <p><a href="">Read More</a></p>
+        </div>
+        <div class="col-md-6">
+            <img id="image1" src="">
+        </div>
+    </div>
+    <div class="col-md-12">
+        {% if media is defined %}
+            {% for medium in media %}
+                <div class="col-md-4">
+                    <div class="col-md-12 test">
+                        <h5>test</h5>
+                        <div class="col-md-12">
+                            <div class="col-md-offset-2 col-md-4">
+                                <img src="" width="300px" />
+                            </div>
+                        </div>
+                        <p>Kameromschrijving?</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+    {% endif %}
+{% endblock %}
