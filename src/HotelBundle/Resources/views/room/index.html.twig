@@ -26,6 +26,19 @@
                     <a class="glyphicon glyphicon-eye-open" href="{{ path('room_show', { 'id': room.id }) }}"></a> |
                     <a class="glyphicon glyphicon-edit" href="{{ path('room_edit', { 'id': room.id }) }}"></a>
                 </td>
+                <td>
+                    <form name="form" method="post" action="{{ path('room_delete', {'id': room.id}) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <div id="form">
+                            <div>
+                                <button type="submit" id="form_submit" name="form[submit]">
+                                    Delete
+                                </button>
+                            </div>
+                            <input type="hidden" id="form__token" name="form[_token]" value="...">
+                        </div>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

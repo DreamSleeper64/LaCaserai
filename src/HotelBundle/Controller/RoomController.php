@@ -26,11 +26,16 @@ class RoomController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $rooms = $em->getRepository('HotelBundle:Room')->findAll();
-
+//        function delete($id)
+//        {
+//            $em = $this->getDoctrine()->getManager();
+//            $em->getRepository('HotelBundle:Room')->deleteThinggie($id);
+//
+//        }
         return $this->render('@Hotel/room/index.html.twig', array(
             'rooms' => $rooms,
+//            'delete' => ,
         ));
     }
 

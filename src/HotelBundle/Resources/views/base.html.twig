@@ -31,6 +31,9 @@
                     <li><a href="{{ path('season_index') }}">Seasons</a></li>
                     <li><a href="{{ path('arrangement_index') }}">Arrangements</a></li>
                 </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="pull-right"><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                </ul>
             </div>
         </div>
         </nav>
@@ -76,9 +79,6 @@
             </div>
         {% endfor %}
         {% block body %}{% endblock %}
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('fos_user_security_logout') }}"><div class="adminPull"><h3 class="adminPull__text">Logout</h3></div></a>
-        {% endif %}
         <footer class="footer">
             <div class="container-fluid"></div>
         </footer>

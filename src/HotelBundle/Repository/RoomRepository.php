@@ -25,4 +25,16 @@ class RoomRepository extends \Doctrine\ORM\EntityRepository
             )
             ->getResult()[0];
     }
+
+    public function deleteThinggie($obtained)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'DELETE c.imageUrl FROM HotelBundle:Room p 
+                      JOIN HotelBundle:Media c
+                      WHERE c.room = p.id
+                      WHERE p.id = '.$obtained
+            )
+            ->execute();
+    }
 }

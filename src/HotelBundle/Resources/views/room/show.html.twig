@@ -1,6 +1,34 @@
 {% extends '@Hotel/base.html.twig' %}
 
 {% block body %}
+        <div class="nav navbar-collapse navbar-inverse navbar-fixed-bottom">
+            <div class="navbar-btn">
+                <a  href="{{ path('room_index') }}">
+                    <button class="btn btn-default">Back</button>
+                </a>
+                <a href="{{ path('room_edit', { 'id': room.id }) }}">
+                <button class="btn btn-primary">Edit</button>
+                </a>
+                <div class="pull-right">
+                    {{ form_start(delete_form) }}
+                    <button class="btn btn-danger" type="submit">Delete Room</button>
+                    {{ form_end(delete_form) }}
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h1>Room</h1>
 
@@ -33,19 +61,5 @@
 
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('room_index') }}">Back to the list</a>
-            </li>
-            <li>
-                <a href="{{ path('room_edit', { 'id': room.id }) }}">Edit</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
     </div>
 {% endblock %}
