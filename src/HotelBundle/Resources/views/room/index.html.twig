@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Rooms list</h1>
 
-    <table>
+    <table class="table table-responsive table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,23 +23,18 @@
                 <td>{{ room.description }}</td>
                 <td>{{ room.type }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('room_show', { 'id': room.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('room_edit', { 'id': room.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="glyphicon glyphicon-eye-open" href="{{ path('room_show', { 'id': room.id }) }}"></a> |
+                    <a class="glyphicon glyphicon-edit" href="{{ path('room_edit', { 'id': room.id }) }}"></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('room_new') }}">Create a new room</a>
-        </li>
-    </ul>
+    <div class="col-md-12">
+            <div class="col-md-4">
+                <div class="col-md-1">
+                    <a class="btn btn-success" href="{{ path('room_new') }}">Create a new room</a>
+                </div>
+            </div>
+        </div>
 {% endblock %}
